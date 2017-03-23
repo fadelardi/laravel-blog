@@ -9,11 +9,13 @@ class PostsController extends Controller
 {
     public function index()
     {
-      return Posts::get();
+      $posts = Posts::get();
+      return view('posts', compact('posts'));
     }
 
     public function show($post)
     {
-      return Posts::find($post);
+      $post = Posts::find($post);
+      return view('post', compact('post'));
     }
 }
