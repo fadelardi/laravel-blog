@@ -18,4 +18,19 @@ class PostsController extends Controller
       $post = Posts::find($post);
       return view('post', compact('post'));
     }
+
+    public function create()
+    {
+      return view('create');
+    }
+
+    public function store()
+    {
+      Posts::create([
+          'title' => request('title'),
+          'body' => request('body')
+      ]);
+
+      return redirect('/');
+    }
 }
