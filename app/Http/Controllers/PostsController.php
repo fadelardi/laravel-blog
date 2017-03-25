@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
+use App\Post;
 
 class PostsController extends Controller
 {
     public function index()
     {
-      $posts = Posts::get();
+      $posts = Post::get();
       return view('posts', compact('posts'));
     }
 
     public function show($post)
     {
-      $post = Posts::find($post);
+      $post = Post::find($post);
       return view('post', compact('post'));
     }
 
@@ -31,7 +31,7 @@ class PostsController extends Controller
         'body' => 'required'
       ]);
 
-      Posts::create([
+      Post::create([
           'title' => request('title'),
           'body' => request('body')
       ]);
