@@ -8,6 +8,7 @@
         <title>Blog App</title>
     </head>
     <body>
+        @include('navigation')
         @yield('content')
     </body>
 </html>
