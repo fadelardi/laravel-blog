@@ -9,4 +9,6 @@
       <div>Created by <a href="#">{{$post->user->name}}</a> on {{$post->created_at}}</div>
     </div>
   @endforeach
+
+  @include('archive')
 @endsection

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -21,5 +22,16 @@ class Post extends Model
     public function addComment($body)
     {
       return $this->comments()->create(compact('body'));
+    }
+
+    public function scopeFilter($query, $filters)
+    {
+      if ($filters['month']) {
+        $query->whereMonth('created_at', Carbon::parse($filters['month'])->month);
+      }
+
+      if ($filters['year']) {
+        $query->whereYear('created_at', Carbon::parse($filters['year'])->year);
+      }
     }
 }
