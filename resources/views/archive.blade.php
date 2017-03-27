@@ -2,8 +2,8 @@
 <h3>Archive</h3>
 
 <ul>
-  @foreach($archive as $archived)
-    <li><a href="?month={{$archived['month']}}&year={{$archived['year']}}">{{$archived->month . ' ' . $archived->year}}</a></li>
+  @foreach($archives as $archive)
+    <li><a href="?month={{$archive->month}}&year={{$archive->year}}">{{$archive->month . ' ' . $archive->year}}</a></li>
   @endforeach
 </ul>
 </div>

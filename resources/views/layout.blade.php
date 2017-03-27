@@ -10,5 +10,6 @@
     <body>
         @include('navigation')
         @yield('content')
+        @include('archive')
     </body>
 </html>
