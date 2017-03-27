@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 @include('errors')
 <form method="POST" action="/posts">
 {{ csrf_field() }}
@@ -11,3 +14,4 @@
 </div>
 <input type="submit" value="Publish" />
 </form>
+@endsection
