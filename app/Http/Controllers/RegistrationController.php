@@ -19,11 +19,13 @@ class RegistrationController extends Controller
         'password' => 'required|min:4',
       ]);
 
-      User::create([
+      $user = User::create([
         'name' => request('name'),
         'email' => request('email'),
-        'password' => request('password'),
+        'password' => bcrypt(request('password')),
       ]);
+
+      auth()->login($user);
 
       return redirect('/');
     }
