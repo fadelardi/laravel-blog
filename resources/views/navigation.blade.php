@@ -11,7 +11,9 @@
     </ul>
 
     @if (Auth::check())
-      <div style="margin-left:auto">{{ Auth::user()->name }}</div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>{{ Auth::user()->name }}</a></li>
+      </ul>
     @endif
   </div>
 </nav>
