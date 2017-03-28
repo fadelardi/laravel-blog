@@ -1,19 +1,20 @@
 @extends('layout')
 
 @section('content')
-    <div>
-      <h3>{{$post->title}}</h3>
-      <div>{{$post->created_at}}</div>
-      <div>{{$post->body}}</div>
-
-      <hr>
-      <h3>Comments</h3>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>{{$post->title}}</h3>
+        <div>{{$post->created_at}}</div>
+      </div>
+      <div class="panel-body">
+        <div>{{$post->body}}</div>
 
       @foreach($post->comments as $comment)
+        <hr>
         <div>{{ $comment->body }}</div>
+        <hr>
       @endforeach
 
-      <hr>
 
       @include('errors')
 
@@ -21,15 +22,16 @@
         <form method="POST" action="/posts/{{$post->id}}/comments">
           {{ csrf_field() }}
 
-          <div>
-            <textarea name="body" placeholder="Add your comment" required></textarea>
+          <div class="form-group">
+            <textarea name="body" placeholder="Add your comment" class="form-control" required></textarea>
           </div>
 
-          <div>
-            <input type="submit" value="Add Comment" />
+          <div class="form-group">
+            <input type="submit" value="Add Comment" class="btn btn-primary" />
           </div>
         </form>
       </div>
+    </div>
 
     </div>
 @endsection
